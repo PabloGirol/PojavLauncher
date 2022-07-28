@@ -5,9 +5,14 @@
 [![Android CI](https://github.com/PojavLauncherTeam/PojavLauncher/workflows/Android%20CI/badge.svg)](https://github.com/PojavLauncherTeam/PojavLauncher/actions)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/PojavLauncherTeam/PojavLauncher)](https://github.com/PojavLauncherTeam/PojavLauncher/actions)
 [![Crowdin](https://badges.crowdin.net/pojavlauncher/localized.svg)](https://crowdin.com/project/pojavlauncher)
-[![Discord](https://img.shields.io/discord/724163890803638273.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/6RpEJda) 
+[![Discord](https://img.shields.io/discord/724163890803638273.svg?label=&logo=discord&logoColor=ffffff&color=7389D8&labelColor=6A7EC2)](https://discord.gg/6RpEJda)
 [![Twitter Follow](https://img.shields.io/twitter/follow/plaunchteam?color=blue&style=flat-square)](https://twitter.com/PLaunchTeam)
 ---------
+* So this should be a fork of the original PojavLauncher without the legal stuff. No one cares about the microsoft migration and there is people that wont pay for minecraft since you can use it cracked, so, why would a warning stop us?
+
+* I know Github is owned by microsoft, but I dont really care about that, everyone can edit out 4 lines and make it work.
+
+
 * From [Boardwalk](https://github.com/zhuowei/Boardwalk)'s ashes here comes PojavLauncher!
 
 * PojavLauncher is a launcher that allows you to play Minecraft:Java Edition on your Android device!
@@ -16,23 +21,24 @@
 
 * For more details [check out our wiki](https://github.com/PojavLauncherTeam/PojavLauncher/wiki)
 ## Some notes to start with
-- We do not exist on TikTok. No one from the dev team makes TikTok videos. 
+- I wont be maintaining PojavLauncher, I will be merging the main repo and trying to reapply the changes.
+- We do not exist on TikTok. No one from the dev team makes TikTok videos.
 - The official Twitter for PojavLauncher is [@PLaunchTeam](https://twitter.com/PLaunchTeam). Any others (most notably @PojavLauncher) are fake, please report them to Twitter's moderation team.
 
 ## Navigation
-- [Introduction](#introduction)  
+- [Introduction](#introduction)
 - [Getting PojavLauncher](#getting-pojavlauncher)
-- [Building](#building) 
-- [Current status](#current-status) 
-- [License](#license) 
-- [Contributing](#contributing) 
+- [Building](#building)
+- [Current status](#current-status)
+- [License](#license)
+- [Contributing](#contributing)
 - [Credits & Third party components and their licenses](#credits--third-party-components-and-their-licenses-if-available)
 
-## Introduction 
-* PojavLauncher is a Minecraft: Java Edition launcher for Android and iOS based on [Boardwalk](https://github.com/zhuowei/Boardwalk). 
-* This launcher can launch almost all available Minecraft versions ranging from rd-132211 to 1.19 snapshots (including Combat Test versions). 
-* Modding via Forge and Fabric are also supported. 
-* This repository contains source code for Android. 
+## Introduction
+* PojavLauncher is a Minecraft: Java Edition launcher for Android and iOS based on [Boardwalk](https://github.com/zhuowei/Boardwalk).
+* This launcher can launch almost all available Minecraft versions ranging from rd-132211 to 1.19 snapshots (including Combat Test versions).
+* Modding via Forge and Fabric are also supported.
+* This repository contains source code for Android.
 * For iOS/iPadOS, check out [PojavLauncher_iOS](https://github.com/PojavLauncherTeam/PojavLauncher_iOS).
 
 ## Getting PojavLauncher
@@ -42,25 +48,17 @@ Getting PojavLauncher is divided into 3 parts.
 1. You can get prebuilt app from [stable releases](https://github.com/PojavLauncherTeam/PojavLauncher/releases) or [automatic builds](https://github.com/PojavLauncherTeam/PojavLauncher/actions).
 
 2. You can get it from Google Play by clicking:
-[![Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=net.kdt.pojavlaunch)
+   [![Google Play](https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png)](https://play.google.com/store/apps/details?id=net.kdt.pojavlaunch)
 
 3. You can [build](#building) from source.
 ## Building
+Since the space Github will give you is limited, I wont build the app, so I fixed the guide to let you build it manually
+
 If you want to build after launcher code changes, follow the steps below.
 ### Java Runtime Environment (JRE)
-- JRE for Android is [here](https://github.com/PojavLauncherTeam/openjdk-multiarch-jdk8u), and the build script is [here](https://github.com/PojavLauncherTeam/android-openjdk-build-multiarch).
-- Follow build instruction on build script [README.md](https://github.com/PojavLauncherTeam/android-openjdk-build-multiarch/blob/buildjre8/README.md).
-- You can also get [CI auto builds](https://github.com/PojavLauncherTeam/android-openjdk-build-multiarch/actions) if you are lazy or failing it for some reason.
-* Either get `jre8-pojav` artifact from auto builds, or do splitting by yourself:</br>
-   - Get JREs for all of 4 supported architectures (arm, arm64, x86, x86_64) </br> 
-      - Split JRE into parts:</br>
-                Platform-independent: .jar files, libraries, configs, etc...</br>
-                Platform-dependent: .so files, etc...</br>
-        - Create:</br>
-                A file named `universal.tar.xz` with all platform-independent files</br>
-                4 files named `bin-<arch>.tar.xz` with all platform-dependent files per-architecture</br>
-        - Put these in `assets/components/jre/` folder</br>
-        - (If needed) update the Version file with the current date</br>
+- You need to get jre8-pojav from [CI auto builds](https://github.com/PojavLauncherTeam/android-openjdk-build-multiarch/actions?query=branch%3Abuildjre8).
+- Then you download jre17-pojav also from [CI auto builds](https://github.com/PojavLauncherTeam/android-openjdk-build-multiarch/actions?query=branch%3Abuildjre17).
+- Finally you should extract jre8-pojav inside `assets/components/jre/` and jre17-pojav inside `assets/components/jre-new`
 
 ### LWJGL
 - **Coming soon**
@@ -70,7 +68,6 @@ If you want to build after launcher code changes, follow the steps below.
 
 * On Linux, Mac OS:
 ```
-chmod +x scripts/languagelist_updater.sh
 bash scripts/languagelist_updater.sh
 ```
 * On Windows:
@@ -88,6 +85,9 @@ Then, run these commands ~~or build using Android Studio~~.
 ./gradlew :app_pojavlauncher:assembleDebug
 ```
 (Replace `gradlew` to `gradlew.bat` if you are building on Windows).
+
+The apk should be located in `app_pojavlauncher/build/outputs/apk/debug`
+Enjoy playing without a microsoft account!
 
 ## Current status
 - [x] ~~OpenJDK 9 Mobile port: ARM32, ARM64, x86, x86_64.~~ Replaced by JRE8.
@@ -109,7 +109,7 @@ Then, run these commands ~~or build using Android Studio~~.
 - Controller mods aren't working.
 - Random crashes could happen very often on Android 5.x during game load or join world.
 - With big modpacks textures could be messed up
-- Probably more, that's why we have a bug tracker ;) 
+- Probably more, that's why we have a bug tracker ;)
 
 ## License
 - PojavLauncher is licensed under [GNU GPLv3](https://github.com/khanhduytran0/PojavLauncher/blob/master/LICENSE).
